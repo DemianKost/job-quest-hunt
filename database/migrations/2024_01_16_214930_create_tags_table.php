@@ -9,7 +9,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('tags', static function (Blueprint $table): void {
             $table->uuid('id')->primary();
             $table->string('name');
             $table->string('type')->default(TagType::TAG->value);

@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('feedback', function (Blueprint $table) {
+        Schema::create('feedback', static function (Blueprint $table): void {
             $table->uuid('id')->primary();
             $table->text('cover_letter');
             $table->foreignUuid('vacancy_id')
