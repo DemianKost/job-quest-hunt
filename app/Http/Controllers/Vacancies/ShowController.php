@@ -2,16 +2,35 @@
 
 namespace App\Http\Controllers\Vacancies;
 
-use App\Http\Controllers\Controller;
+use App\Http\Resources\Web\VacancyResource;
+use App\Models\Vacancy;
 use Illuminate\Http\Request;
+use Inertia\Response;
+use Inertia\ResponseFactory;
 
-class ShowController extends Controller
+final class ShowController
 {
     /**
-     * Handle the incoming request.
+     * @param ResponseFactory $response
      */
-    public function __invoke(Request $request)
+    public function __construct(
+        private ResponseFactory $response,
+    ) {}
+
+    /**
+     * @param Request $request
+     * @param Vacancy $vacancy
+     * @return Response
+     */
+    public function __invoke(Request $request, Vacancy $vacancy): Response
     {
-        //
+        return $this->response->render(
+            component: 'Vacancies/Show',
+            props: [
+                'vacancy' => new VacancyResource(
+                    resource: $vacancy
+                ),
+            ],
+        );
     }
 }

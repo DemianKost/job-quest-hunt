@@ -22,6 +22,7 @@ class VacancyResource extends JsonResource
             'id' => $this->resource->getKey(),
             'title' => $this->resource->title,
             'description' => $this->resource->description,
+            'short_description' => substr( $this->resource->description, 90 ),
             'created_at' => $this->resource->created_at->diffForHumans(),
         ];
     }

@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Vacancies;
 
-use App\Http\Controllers\Controller;
 use App\Http\Resources\Web\VacancyResource;
 use App\Models\Vacancy;
 use Inertia\Response;
 use Inertia\ResponseFactory;
 
-final class IndexController extends Controller
+final class IndexController
 {
     /**
      * @param ResponseFactory $response
