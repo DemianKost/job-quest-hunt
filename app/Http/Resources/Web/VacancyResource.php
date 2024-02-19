@@ -6,6 +6,7 @@ namespace App\Http\Resources\Web;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Web\TagResource;
 use App\Models\Vacancy;
 
 /**
@@ -23,6 +24,9 @@ class VacancyResource extends JsonResource
             'title' => $this->resource->title,
             'description' => $this->resource->description,
             'short_description' => substr( $this->resource->description, 90 ),
+            'tags' => TagResource::collection(
+                resource: $this->resource->tags
+            ),
             'created_at' => $this->resource->created_at->diffForHumans(),
         ];
     }

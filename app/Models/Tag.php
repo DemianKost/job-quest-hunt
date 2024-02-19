@@ -33,6 +33,8 @@ class Tag extends Model
      */
     public function vacancies(): BelongsToMany
     {
-        return $this->belongsToMany( Vacancy::class );
+        return $this->belongsToMany(
+            related: Vacancy::class
+        );
     }
 }
