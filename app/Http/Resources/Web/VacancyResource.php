@@ -27,7 +27,7 @@ class VacancyResource extends JsonResource
             'tags' => TagResource::collection(
                 resource: $this->resource->tags
             ),
-            'author' => AuthorResource::collection(
+            'author' =>  new AuthorResource(
                 resource: $this->resource->author
             ),
             'created_at' => $this->resource->created_at->diffForHumans(),
